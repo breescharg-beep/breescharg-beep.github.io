@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6c5ce7">
+<title>Level Up: Diabetes & College</title>
+<style>
+:root{--bg:#f7f5ff;--card:#fff;--ink:#29243d;--muted:#756f88;--a:#6c5ce7;--soft:#eeeafd;--line:#e5e0f1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:28px 18px;color:white;background:linear-gradient(135deg,#6c5ce7,#9a88f5)}header h1{margin:0;font-size:27px}header p{margin:6px 0}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);display:flex;overflow:auto;padding:8px;gap:7px}nav button{white-space:nowrap;border:0;border-radius:999px;padding:9px 13px;background:var(--soft);font-weight:700;color:var(--ink)}nav button.active{background:var(--a);color:#fff}
+main{max-width:900px;margin:auto;padding:16px}.tab{display:none}.tab.active{display:block}.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:17px;margin:14px 0;box-shadow:0 4px 15px #3c2d6410}
+.hero{text-align:center;background:linear-gradient(145deg,#fff,#f0edff)}.hero .emoji{font-size:40px}.hero h2{font-size:25px}.quote{font-style:italic;font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:15px;border:1px solid var(--line);border-radius:15px}
+h2{margin:0 0 10px}h3{margin:0 0 8px}.muted{color:var(--muted);font-size:13px}.item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}input[type=checkbox]{width:20px;height:20px;accent-color:var(--a)}input[type=text]{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px}.row{display:flex;gap:8px}.row input{flex:1}button.action{border:0;border-radius:10px;padding:10px 14px;background:var(--a);color:#fff;font-weight:700}.event{padding:10px 0;border-bottom:1px solid var(--line)}a{color:var(--a);font-weight:700;text-decoration:none}.warning{background:#fff8e5}.climb{background:#f2f0ff}.run{background:#eef9f2}.assignment{display:flex;gap:8px;align-items:center;padding:7px 0}.assignment span{flex:1}.remove{border:0;background:none;color:#9a5068}.weather-temp{font-size:35px;font-weight:800}footer{text-align:center;color:var(--muted);font-size:12px;padding:15px}
+#home{--day-color:#6c5ce7;--day-soft:#eeeafd}
+body.day-monday{--day-color:#d95d39;--day-soft:#fff0e9}
+body.day-tuesday{--day-color:#2878b5;--day-soft:#e9f5ff}
+body.day-wednesday{--day-color:#278568;--day-soft:#e8f8f1}
+body.day-thursday{--day-color:#9b59b6;--day-soft:#f5eaff}
+body.day-friday{--day-color:#b8860b;--day-soft:#fff8df}
+body.day-saturday{--day-color:#d45b8b;--day-soft:#fff0f6}
+body.day-sunday{--day-color:#5967c9;--day-soft:#eef0ff}
+header{background:linear-gradient(135deg,var(--day-color,#6c5ce7),color-mix(in srgb,var(--day-color,#6c5ce7),white 28%))}
+nav button.active{background:var(--day-color,#6c5ce7)}
+#home .hero{border:2px solid var(--day-color);background:linear-gradient(145deg,#fff,var(--day-soft))}
+.day-card{border-top:5px solid var(--day-color);background:var(--day-soft)}
+.day-card.monday{--day-color:#d95d39;--day-soft:#fff0e9}
+.day-card.tuesday{--day-color:#2878b5;--day-soft:#e9f5ff}
+.day-card.wednesday{--day-color:#278568;--day-soft:#e8f8f1}
+.day-card.thursday{--day-color:#9b59b6;--day-soft:#f5eaff}
+.day-card.friday-and-weekend{--day-color:#b8860b;--day-soft:#fff8df}
+.day-card.today{border:3px solid var(--day-color);border-top-width:7px;background:var(--day-soft)}
+.day-card.today{outline:3px solid var(--day-color);box-shadow:0 0 0 5px #0000000a}
+.day-card.today h2:after{content:"  • TODAY";font-size:12px;letter-spacing:.08em;color:var(--day-color)}
+.big-quote{font-size:clamp(24px,4vw,34px);font-weight:850;line-height:1.25;margin:4px 0 12px}
+.photo-strip{display:flex;gap:10px;overflow:auto}
+.photo-strip img{max-height:190px;max-width:100%;object-fit:cover;border-radius:14px}.photo-strip.slideshow{justify-content:center;align-items:center;background:#211d30;border-radius:16px;min-height:260px;padding:8px}.photo-strip.slideshow img{height:min(52vh,480px);min-height:260px;max-width:100%;width:100%;object-fit:contain;border-radius:12px}.status-yellow{background:#fff4b8!important;border:2px solid #e2b900!important}.status-red{background:#ffe1e1!important;border:2px solid #d93434!important}.status-neutral{background:#fff!important;border:1px solid var(--line)!important}.daily-motivation{margin-top:16px;padding:14px;border-radius:14px;background:#ffffffb8;border:1px solid var(--line)}.daily-motivation .quote{font-size:clamp(18px,3vw,23px);font-weight:750;line-height:1.35}.permanent-quote{font-size:clamp(25px,4vw,36px);font-weight:850;line-height:1.2;margin:8px 0}
+.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--day-soft);font-size:12px;font-weight:800}
+input[type=date],input[type=file]{max-width:100%;padding:10px;border:1px solid var(--line);border-radius:10px}
+.site-day{padding:12px;border-radius:12px;margin:8px 0;border:2px solid transparent}
+.site-day.yellow{background:#fff4b8;border-color:#e2b900}
+.site-day.red{background:#ffe1e1;border-color:#d93434}
+.small-note{font-size:12px;color:var(--muted)}
+.schedule-list{padding-left:22px;margin:10px 0}.schedule-list li{margin:7px 0;line-height:1.4}
+.warmup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.warmup-grid label{display:block;font-weight:700}.warmup-grid input{display:block;margin-top:6px;width:100%}
+@media(max-width:650px){.warmup-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.grid{grid-template-columns:1fr}}
+
+.photo-strip.slideshow{display:flex;justify-content:center;align-items:center;background:#211d30;border-radius:16px;min-height:300px;padding:10px;overflow:hidden}
+.photo-strip.slideshow img{height:clamp(280px,55vh,560px);min-height:280px;max-height:560px;width:100%;object-fit:contain;border-radius:12px}
+.editor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.editor-grid label,.plan-toolbar label{display:flex;flex-direction:column;gap:5px;font-weight:700;font-size:14px}
+.editor-grid input,.editor-grid select,.editor-grid textarea,.plan-toolbar input{font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;width:100%;min-width:0}
+.editor-grid .wide{grid-column:1/-1}.schedule-event{padding:10px 0;border-bottom:1px solid var(--line)}
+.schedule-meta,.plan-entry-meta{font-size:13px;color:var(--muted);margin-top:3px}
+.plan-week{padding:14px;border:1px solid var(--line);border-radius:15px;margin:12px 0;background:white}
+.plan-entry{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.plan-entry-main{flex:1;min-width:0}.plan-entry-title{font-weight:800}.plan-entry-notes{white-space:pre-wrap;margin-top:5px}
+.plan-entry.completed .plan-entry-title{text-decoration:line-through;opacity:.65}
+.plan-toolbar,.plan-actions{display:flex;gap:8px;align-items:end;flex-wrap:wrap}.plan-empty{color:var(--muted);font-style:italic}
+@media(max-width:600px){.photo-strip.slideshow{min-height:250px}.photo-strip.slideshow img{height:clamp(230px,48vh,440px);min-height:230px}}
+
+.color-settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.color-setting{display:flex;align-items:center;gap:9px;padding:8px;border:1px solid #e2e8f0;border-radius:10px}.color-setting input{width:40px;height:35px;border:0;background:none;cursor:pointer}.color-setting label{font-size:.88rem}.calendar-week{margin:16px 0 22px;border-radius:15px;overflow:hidden;border:1px solid #dbe2ed;background:white}.calendar-week-heading{margin:0;padding:13px 15px;background:#edf2fb;display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}.calendar-week-heading small{font-weight:400;font-size:.83rem}.calendar-week.finals-week{border:2px solid #e99b9b}.finals-week .calendar-week-heading{background:#ffe4e6}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.calendar-day{min-width:0;min-height:125px;padding:7px 5px;border-right:1px solid #e2e8f0;border-top:1px solid #e2e8f0;overflow-wrap:anywhere}.calendar-day:last-child{border-right:0}.calendar-day.today{background:#eff6ff}.calendar-day-name{font-size:.75rem;color:#64748b;font-weight:700}.calendar-day-date{font-size:.8rem;font-weight:700;margin-bottom:6px}.calendar-event{background:var(--event-bg);border-left:4px solid var(--event-color);border-radius:7px;padding:6px 5px;margin:5px 0;font-size:.72rem;line-height:1.3}.calendar-event.is-done{opacity:.58}.calendar-event.is-done b{text-decoration:line-through}.calendar-event .action{font-size:.68rem;padding:3px 5px;margin:4px 3px 0 0}.calendar-add{border:1px dashed #94a3b8;background:transparent;border-radius:6px;cursor:pointer;font-size:.9rem;padding:2px 9px;margin-top:5px}@media(max-width:720px){.calendar-grid{grid-template-columns:repeat(7,minmax(0,1fr));overflow-x:auto}.calendar-week{overflow-x:auto}.calendar-grid{min-width:665px}.calendar-day{min-height:115px}.calendar-event{font-size:.7rem}}
+
+/* Compact Home layout; other planner sections unchanged */
+#home .card{padding:12px 14px;margin:9px 0;border-radius:14px}
+#home .hero{padding:14px 16px}
+#home .hero .emoji{font-size:25px}
+#home .hero h2{font-size:20px;margin:3px 0}
+#home .permanent-quote{font-size:clamp(19px,3vw,26px);margin:5px 0}
+#home .daily-motivation{margin-top:8px;padding:9px}
+#home .daily-motivation .quote{font-size:16px;margin:5px 0}
+#home .mini{padding:10px;border-radius:12px}
+#home .grid{gap:9px}
+#home h2{font-size:19px}
+#home h3{font-size:16px}
+#home .photo-strip.slideshow{min-height:140px;padding:5px}
+#home .photo-strip.slideshow img{height:clamp(125px,25vh,240px);min-height:125px;max-height:240px}
+#home .event{padding:6px 0}
+#home .weather-temp{font-size:28px}
+@media(max-width:650px){#home .grid{grid-template-columns:1fr}}
+.schedule-inline-edit{border:0;background:transparent;color:#6450ae;text-decoration:underline;cursor:pointer;font-size:12px;padding:2px 5px}#scheduleEditor summary{cursor:pointer;font-size:1rem;padding:5px 0}#scheduleEditor[open] summary{margin-bottom:14px}#scheduleContent .schedule-list li{padding:3px 0;line-height:1.55}
+
+.sync-status{font-size:13px;color:#514a68}.sync-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.sync-actions button{font-size:13px}.sync-card{border:2px solid #c7b9f6}.sync-card code{overflow-wrap:anywhere}
+</style></head>
+<body>
+<header><h1>Level Up: Diabetes & College ♡</h1><p>Plan • Remember • Keep Moving</p></header>
+<nav>
+<button class="active" data-tab="home">🏠 Home</button><button data-tab="schedule">📅 Schedule</button><button data-tab="plan10">🗓️ Quarter Calendar</button><button data-tab="homework">📚 Homework</button><button data-tab="cloudsync">☁️ Sync</button><button data-tab="essentials">🎒 Essentials</button><button data-tab="running">🏃 Running</button><button data-tab="climbing">🧗 Climbing</button><button data-tab="diabetes">🩸 Diabetes</button><button data-tab="reminders">🔔 Reminders</button>
+</nav>
+<main>
+<section id="home" class="tab active">
+<div class="card hero"><div class="emoji">✨</div><h2>Welcome back, Bree!</h2><p id="date"></p><div class="permanent-quote">“If there is no struggle, there is no progress.”</div><p><b>— Frederick Douglass</b></p><div class="daily-motivation"><h3>✨ Today’s Famous Motivation</h3><p class="quote" id="dailyQuote"></p><p class="small-note" id="dailyQuoteAuthor"></p></div><p class="muted" id="climbAdvice"></p><p class="muted" id="dailyReminder"></p></div>
+<div class="card"><h2>📸 Your Home Photos</h2><p class="muted">Choose one or more photos from your photo library. They stay in this browser on this device; choose them again on another device.</p><input id="photoPicker" type="file" accept="image/*" multiple><div id="photoPreview" class="photo-strip"></div><p id="photoStatus" class="muted" role="status" aria-live="polite"></p><button class="action" id="clearPhotos" type="button">Clear photos</button></div>
+<div class="grid">
+<div class="mini"><h3>🌤️ Denver Weather</h3><div id="weather">Loading live weather…</div><p class="muted">Updates when the Home page opens.</p></div>
+<div class="mini"><h3>🗓️ What's Happening</h3>
+<div class="event"><b>Premier League Mornings Live</b><br><span class="muted">Denver • Oct. 10–11</span><br><a href="https://www.9news.com/article/entertainment/events/9-things-to-do/colorado-weekend-events-guide-oct-10/73-209a1f3f-72ea-4d42-9fbe-542428abb500" target="_blank">Weekend event guide →</a></div>
+<div class="event"><b>More Denver events</b><br><a href="https://www.visitdenver.com/events/" target="_blank">Live Denver events calendar →</a></div>
+</div>
+<div class="mini"><h3>🏆 DU Sports · Next 7 Days</h3><div id="duSports">Loading upcoming DU games…</div><p><a href="https://denverpioneers.com/calendar" target="_blank" rel="noopener">Official DU Athletics calendar →</a></p></div>
+
+</div>
+<div class="card"><h2>🧗 Climber's Edge</h2><p id="climbTip"></p></div>
+<div class="card"><h2>📰 News: World, National & Local</h2><div class="grid">
+<div class="mini"><h3>🌎 World</h3><a href="https://www.reuters.com/world/" target="_blank" rel="noopener">Reuters World →</a><br><a href="https://apnews.com/world-news" target="_blank" rel="noopener">AP World →</a></div>
+<div class="mini"><h3>🇺🇸 National</h3><a href="https://apnews.com/" target="_blank" rel="noopener">Associated Press →</a><br><a href="https://www.npr.org/sections/national/" target="_blank" rel="noopener">NPR National →</a></div>
+<div class="mini"><h3>📍 Local</h3><a href="https://www.9news.com/" target="_blank" rel="noopener">9NEWS Colorado →</a><br><a href="https://www.denverpost.com/" target="_blank" rel="noopener">The Denver Post →</a></div>
+</div></div>
+<div class="card"><h2>📰 Denver Right Now</h2>
+<div class="event"><b>Fall warmth continues</b><br><span class="muted">Warm, sunny fall weather is continuing in Denver.</span><br><a href="https://www.denvergazette.com/2026/10/07/denver-weather-fall-warmth-persists-but-with-slightly-cooler-temps/" target="_blank">Read more →</a></div>
+<div class="event"><b>Denver data-center planning</b><br><span class="muted">The city has formed a working group to evaluate future data-center development.</span><br><a href="https://www.axios.com/local/denver/2026/10/07/denver-data-center-working-group" target="_blank">Read more →</a></div>
+<div class="event"><a href="https://www.9news.com/" target="_blank">More local Denver news →</a></div></div>
+<div class="card"><h2>🎯 Today's Focus</h2><p id="focus"></p></div>
+<div class="card"><h2>⚡ Quick Jump</h2><div class="grid"><div class="mini">📚 School<br><button class="action" onclick="show('schedule')">Open Schedule</button></div><div class="mini">🎒 Before You Go<br><button class="action" onclick="show('essentials')">Open Essentials</button></div></div></div>
+</section>
+
+<section id="cloudsync" class="tab">
+<div class="card sync-card"><h2>☁️ Cloud Sync — Mac + iPhone</h2>
+<p>Keep your existing app installed on both devices. First download a backup on EACH device, then import only the information that device has the most accurate version of. Use the same Google account on both devices.</p>
+<div class="sync-actions"><button type="button" class="action" id="syncSignIn">Sign in with Google</button><button type="button" class="action" id="syncSignOut" hidden>Sign out</button><button type="button" class="action" id="syncBackup">Download this device's backup</button></div>
+<p id="syncAccount" class="sync-status">Not signed in</p>
+<h3>1. Import the correct information</h3>
+<p><b>On your Mac in Chrome:</b> select Import Mac schedules. <b>On your iPhone Home Screen app:</b> select Import iPhone homework. These imports are separate and won't overwrite each other's categories.</p>
+<div class="sync-actions"><button class="action" type="button" id="syncMac">Import Mac schedules</button><button class="action" type="button" id="syncPhone">Import iPhone homework</button></div>
+<h3>2. Turn on automatic syncing</h3>
+<p>After both imports are complete, open Cloud Sync on each device and turn on syncing. Cloud data will become the shared version for the selected planner categories.</p>
+<div class="sync-actions"><button class="action" type="button" id="syncEnable">Enable syncing on this device</button><button class="action" type="button" id="syncDisable">Pause syncing</button></div>
+<p id="syncStatus" class="sync-status" role="status" aria-live="polite">No cloud changes have been made.</p>
+<p class="muted">Photos are not uploaded to the cloud. This sync includes schedules, homework, calendar items, checklist status, and tracker dates. It does not transmit readings or communicate with your pump or CGM. Google sign-in requires an internet connection.</p>
+</div></section>
+<section id="schedule" class="tab">
+<div class="card"><h2>📅 Weekly Schedule</h2><p class="muted" id="week"></p><p class="muted">Add weekly recurring activities or one-time events. Changes save in this browser. Archive the current quarter before switching schedules.</p></div>
+<div id="scheduleContent"></div><details class="card" id="scheduleEditor"><summary><b>✏️ Edit weekly schedule / prepare next quarter</b></summary><p class="muted">Your weekly list stays visible. Open this only when you want to change activities or archive a quarter.</p><div><h2 id="schedHeading">➕ Add a schedule activity</h2><form id="schedForm" class="editor-grid">
+<label>Activity name<input id="schedTitle" required maxlength="160" placeholder="e.g. Spanish class"></label>
+<label>Type<select id="schedType"><option>Class</option><option>Study</option><option>Meal</option><option>Run</option><option>Rock climbing</option><option>Work</option><option>Appointment</option><option>Other</option></select></label>
+<label>Repeat<select id="schedRepeat"><option value="weekly">Every week</option><option value="once">One-time event</option></select></label>
+<label>Day<select id="schedDay"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></label>
+<label>Specific date for one-time event<input id="schedDate" type="date"></label><label>Start time<input id="schedStart" type="time"></label><label>End time<input id="schedEnd" type="time"></label>
+<label class="wide">Notes (optional)<textarea id="schedNotes" rows="2" maxlength="1200"></textarea></label>
+<div class="wide plan-actions"><button class="action" type="submit" id="schedSubmit">Save activity</button><button class="action" type="button" id="schedCancel" hidden>Cancel edit</button></div></form><p id="schedStatus" class="muted" role="status" aria-live="polite"></p></div>
+<div class="card"><h2>🗂️ Quarter archive</h2><p class="muted">Save a named copy of your current schedule before making next quarter's changes.</p><div class="editor-grid"><label>Quarter name<input id="archiveName" placeholder="e.g. Winter Quarter 2027"></label><button class="action" type="button" id="archiveButton">Archive current schedule</button></div><div id="archives"></div></div></details></section>
+<section id="plan10" class="tab">
+<div class="card"><h2>🗓️ Quarter Calendar · 10 Weeks + Finals</h2><p class="muted">Choose a start date for any quarter. Weeks 1–10 are your regular quarter; Week 11 is for final exams. Items outside the window stay saved.</p><div class="plan-toolbar"><label>Planning window starts<input id="planStart" type="date"></label><button class="action" id="planToday" type="button">Start today</button></div><p id="planWindow" class="muted"></p></div>
+<div class="card"><h2 id="planHeading">➕ Add a plan item</h2><form id="planForm" class="editor-grid"><label>Title<input id="planTitle" required maxlength="180"></label><label>Date<input id="planDate" type="date" required></label><label>Type<select id="planType"><option>Assignment</option><option>Exam</option><option>Project</option><option>Presentation</option><option>Event</option><option>Personal plan</option><option>Other</option></select></label><select id="planCategory" hidden aria-label="Calendar color"></select><label class="wide">Notes (optional)<textarea id="planNotes" rows="3" maxlength="3000"></textarea></label><div class="wide plan-actions"><button class="action" id="planSubmit" type="submit">Save item</button><button class="action" id="planCancel" type="button" hidden>Cancel edit</button></div></form><p id="planStatus" class="muted" role="status" aria-live="polite"></p></div>
+<div hidden aria-hidden="true"><div class="card"><h2>🎨 My reusable colors</h2><p class="muted">Create any named color you like, such as Economics, Spanish, or Climbing. Select your saved color when adding calendar items. You can rename or recolor your labels later.</p><form id="colorForm" class="editor-grid"><label>Color name<input id="colorName" maxlength="55" required placeholder="e.g. Economics"></label><label>Choose color<input id="colorValue" type="color" value="#dbeafe"></label><div class="wide plan-actions"><button class="action" type="submit" id="colorSubmit">Add named color</button><button class="action" type="button" id="colorCancel" hidden>Cancel edit</button></div></form><p class="muted" id="colorStatus" role="status"></p><div id="planColorSettings" class="color-settings"></div></div></div><div id="planWeeks"></div><div class="card"><h2>📌 Outside this 11-week window</h2><p class="muted">These items are saved but fall before or after the selected window; changing the start date won't delete them.</p><div id="planOutside"></div></div></section>
+<section id="homework" class="tab"><div class="card"><h2>📚 Homework Hub</h2><p class="muted">Add and check off assignments by day. Homework stays separate from your schedule and is saved in this browser.</p></div><div id="hw"></div></section>
+<section id="essentials" class="tab"><div class="card"><h2>🎒 Daily Essentials</h2><div id="daily"></div></div><div class="card"><h2>🚪 Before Leaving for Class</h2><div id="class"></div></div></section>
+<section id="running" class="tab"><div class="card run"><h2>🏃 Running Checklist</h2><div id="runningList"></div></div></section>
+<section id="climbing" class="tab"><div class="card climb"><h2>🧗 Before the Climbing Gym</h2><div id="climbList"></div></div><div class="card climb"><h2>🩸 Rock Climbing Low Alert</h2><p><b>ROCK CLIMBING ONLY — trending down in the 80s–90s:</b> Whole pack of Froot Thief.</p></div></section>
+<section id="diabetes" class="tab">
+<div class="card status-neutral" id="pumpCard"><h2>🩸 Pump Site Tracker</h2><p>Enter the date you changed your pump site. That date is Day 0; the following day is Day 1. This section turns yellow on Day 3 and red on Day 4 or later until you update the date after changing your site.</p><label for="siteDate"><b>Pump site change date</b></label><br><input id="siteDate" type="date"><div id="siteAlerts"><p class="muted">Choose your latest pump-site change date.</p></div><p class="small-note">Use your pump's own alerts and your clinician-provided care plan; these colors are visual reminders only.</p></div>
+<div class="card status-neutral" id="dexStatusCard"><h2>📡 Dexcom G6 Sensor & Warm-Up</h2><p class="muted">Enter when you start a new sensor. The start date is Day 0; the following day is Day 1. This section turns yellow on Day 9 and red on Day 10 or later until you enter the start date for the new sensor.</p><div id="dex"></div><div id="dexDayStatus"></div></div>
+<div class="card"><h2>Low Alert Reference</h2><p>Use CGM trend + how I feel, not just the number.</p><p><b>Dropping rapidly:</b> A few gummies / bits of Froot Thief</p><p><b>Low 70s + feel low:</b> A couple gummies</p><p><b>60s:</b> A few gummies</p><p><b>50s:</b> Most of the gummy pack</p><p><b>50s or below:</b> One low snack pack → wait 15 min → if still at a low plateau, eat more sugar</p><p><b>Slightly low while running:</b> Most of a pack of gummies</p><p><b>Borderline low in middle of night:</b> ½ chocolate milk or Gatorade</p><p class="warning"><b>Climbing only:</b> Trending down in the 80s–90s → whole pack of Froot Thief.</p><p class="muted">This records your existing routine; it does not calculate insulin doses or replace your diabetes-care team's instructions.</p></div>
+</section>
+<section id="reminders" class="tab"><div class="card"><h2>🔔 Reminders</h2><div id="reminders"></div></div><div class="card warning"><b>Safety boundary:</b> This planner organizes reminders and routines. It does not calculate insulin doses, change pump settings, or send commands to the Tandem Mobi.</div></section>
+</main>
+<footer>Level Up • Your routines, your pace, your progress ♡</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const Q=[
+{quote:"Nothing will work unless you do.",author:"Maya Angelou"},
+{quote:"Well done is better than well said.",author:"Benjamin Franklin"},
+{quote:"Start where you are. Use what you have. Do what you can.",author:"Arthur Ashe"},
+{quote:"Act as if what you do makes a difference. It does.",author:"William James"},
+{quote:"Nothing great was ever achieved without enthusiasm.",author:"Ralph Waldo Emerson"},
+{quote:"Energy and persistence conquer all things.",author:"Benjamin Franklin"},
+{quote:"The secret of getting ahead is getting started.",author:"Often attributed to Mark Twain"},
+{quote:"It always seems impossible until it's done.",author:"Commonly attributed to Nelson Mandela"},
+{quote:"You miss 100% of the shots you don't take.",author:"Wayne Gretzky"},
+{quote:"If you can dream it, you can do it.",author:"Commonly attributed to Walt Disney"},
+{quote:"Believe you can and you're halfway there.",author:"Theodore Roosevelt"},
+{quote:"Perseverance is failing 19 times and succeeding the 20th.",author:"Julie Andrews"},
+{quote:"Success is the sum of small efforts, repeated day in and day out.",author:"Robert Collier"},
+{quote:"You are never too old to set another goal or to dream a new dream.",author:"C. S. Lewis"}
+];
+const F=["Start the week strong: check your schedule, pack your essentials, and take the day one block at a time.","Stay steady through classes and remember your afternoon snack.","Midweek check-in: keep going and give yourself credit for what you've already done.","Finish the class week strong, then make room for climbing and fun.","No classes today: use the flexibility to catch up, run if you want, and enjoy Shabbat.","Weekend mode: take care of yourself, have fun, and reset without rushing.","Reset for the week ahead: check homework, charge your gear, and get ready."];
+const CLIMB_ADVICE=[
+"Training focus: set one process goal before the session (for example, precise feet on every warm-up). Quality movement beats rushing through volume.",
+"Training focus: on warm-ups, make every foot placement deliberate. Quiet feet help conserve energy and improve body position.",
+"Training focus: pick one weakness to practice while fresh, then stop the drill before fatigue makes the movement sloppy.",
+"Training focus: rehearse a calm pre-attempt routine—breathe, identify the crux, choose a first move, then commit.",
+"Training focus: prioritize recovery and quality attempts. Record one useful observation after a hard try instead of immediately retrying.",
+"Training focus: practice reading routes from the ground: identify rests, likely clips/holds, and where you can shake out.",
+"Training focus: review the week—one thing that improved, one skill to work next week, and one recovery habit to protect."
+];
+const DAY_TIPS=[
+"Before the session, choose a clear intention; after it, note one thing you learned. Consistency is a competitive advantage.",
+"Practice precise footwork and body tension on easy terrain before trying hard moves.",
+"Make a small number of high-quality attempts with full rest instead of chasing attempts when tired.",
+"Use a repeatable breathing and visualization routine before committing to a difficult sequence.",
+"Treat recovery as training: hydration, food, and sleep support adaptation.",
+"Do a route-reading drill: plan two or three moves ahead and identify a likely rest position.",
+"Review training without judgment. Use the notes to make next week's plan specific and realistic."
+];
+const S={Monday:["Morning: Homemade peanut butter cup → 2-mile jog → big breakfast + coffee around 9:00–9:15","10:00–10:50: Class","12:00–1:50: Class","~2:00: Late lunch","6:00–6:15: Dinner, possibly dessert","7:00–10:00: Rock climbing","~10:00: Optional snack","10:45–11:30: Usual bedtime window"],Tuesday:["~7:15–7:45: Typical wake window","8:30: Breakfast — coffee (Fairlife + Naked coffee powder) + yogurt or oatmeal","10:00–10:50: Class","11:30 or earlier: Lunch","12:00–1:50: Class","2:00–3:50: Class","3:30–4:00: Snack","6:00–6:30: Dinner, possibly dessert/ice cream","10:45–11:30: Usual bedtime window"],Wednesday:["Morning: Homemade peanut butter cup → 2-mile jog → big breakfast + coffee around 9:00–9:15","10:00–10:50: Class","12:00–1:50: Class","~2:00: Late lunch","6:00–6:15: Dinner, possibly dessert","7:00–10:00: Rock climbing","~10:00: Optional snack","10:45–11:30: Usual bedtime window"],Thursday:["~7:15–7:45: Typical wake window","8:30: Breakfast — coffee (Fairlife + Naked coffee powder) + yogurt or oatmeal","10:00–10:50: Class","11:30 or earlier: Lunch","12:00–1:50: Class","2:00–3:50: Class","3:30–4:00: Snack","6:00–6:30: Dinner, possibly dessert/ice cream","10:45–11:30: Usual bedtime window"],"Friday + Weekend":["Friday: No classes; usual routine varies. Possible morning run.","Friday: Three meals; meal times vary.","Friday ~7:00 PM: Shabbat dinner","Saturday: Three meals; times vary. Goal is to sleep until ~8:00 or a little later when possible.","Sunday: Three meals; times vary. Goal is to sleep until ~8:00 or a little later when possible.","10:45–11:30: Usual bedtime window"]};
+const dayNames=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const dayClass=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+const now=new Date(), dow=now.getDay();
+document.body.classList.add("day-"+dayClass[dow]);
+$("date").textContent=now.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+const startOfYear=new Date(now.getFullYear(),0,0);
+const dayOfYear=Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-startOfYear)/86400000);
+const dailyQuote=Q[dayOfYear%Q.length];
+$("dailyQuote").textContent="“"+dailyQuote.quote+"”";
+$("dailyQuoteAuthor").textContent="— "+dailyQuote.author;
+const dailyReminders=[
+"Sunday reset: check homework, charge your gear, and get ready for the week.",
+"One step at a time. Your effort adds up.",
+"Rest is part of the process. Give yourself room to recover.",
+"Midweek reminder: progress matters more than perfection.",
+"Rest is part of the process. Take care of the basics, too.",
+"Finish the week with intention, then make room for fun.",
+"Weekend mode: take care of yourself, have fun, and reset without rushing."
+];
+$("dailyReminder").textContent=dailyReminders[dow];
+$("focus").textContent=F[dow];
+const isClimbingAdviceDay=[1,3,5].includes(dow);
+$("climbAdvice").textContent=isClimbingAdviceDay?CLIMB_ADVICE[dow-1]:"";
+$("climbAdvice").hidden=!isClimbingAdviceDay;
+$("climbTip").textContent=isClimbingAdviceDay?DAY_TIPS[dow-1]:"";
+$("climbTip").closest(".card").hidden=!isClimbingAdviceDay;
+function show(id){
+ document.querySelectorAll(".tab").forEach(el=>el.classList.toggle("active",el.id===id));
+ document.querySelectorAll("nav button").forEach(el=>el.classList.toggle("active",el.dataset.tab===id));
+ if(id==="home"){loadWeather();loadDUSports();}
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("nav button").forEach(btn=>btn.addEventListener("click",()=>show(btn.dataset.tab)));
+window.show=show;
+const monday=new Date(now);monday.setDate(now.getDate()-(dow===0?6:dow-1));
+const dates=Array.from({length:7},(_,i)=>new Date(monday.getFullYear(),monday.getMonth(),monday.getDate()+i));
+const fmt=d=>d.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+$("week").textContent=`Monday, ${fmt(dates[0])} – Sunday, ${fmt(dates[6])}`;
+
+const SCHED_KEY="levelup_schedule_editor_v1",ARCH_KEY="levelup_schedule_archives_v1";
+const weekdays=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const escHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function loadSavedSchedule(){try{const x=JSON.parse(localStorage.getItem(SCHED_KEY)||"null");return Array.isArray(x)?x:null}catch(e){return null}}
+let schedItems=loadSavedSchedule(),editingSched=null;
+if(!schedItems){schedItems=[];Object.entries(S).forEach(([day,arr])=>arr.forEach((txt,i)=>schedItems.push({id:"starter-"+day+"-"+i,title:txt,kind:"Existing routine",repeat:"weekly",day:day==="Friday + Weekend"?"Friday":day,start:"",end:"",date:"",notes:""})))}
+function saveSched(){localStorage.setItem(SCHED_KEY,JSON.stringify(schedItems))}
+function statusSched(s){$("schedStatus").textContent=s}
+function schedEntry(x){let meta=[x.repeat==="once"?(x.date||"Date not set"):x.day,x.kind,[x.start,x.end].filter(Boolean).join("–")].filter(Boolean).join(" · ");return `<div class="schedule-event"><b>${escHTML(x.title)}</b><div class="schedule-meta">${escHTML(meta)}</div>${x.notes?`<p>${escHTML(x.notes)}</p>`:""}<div class="plan-actions"><button class="action" type="button" data-sedit="${x.id}">Edit</button><button class="action" type="button" data-sdel="${x.id}">Delete</button></div></div>`}
+function getArchives(){try{return JSON.parse(localStorage.getItem(ARCH_KEY)||"[]")}catch(e){return []}}
+function renderArchives(){let ar=getArchives();$("archives").innerHTML=ar.length?ar.map((x,i)=>`<div class="event"><b>${escHTML(x.name)}</b> <span class="muted">· ${escHTML(x.savedAt)}</span> <button class="action" type="button" data-restore="${i}">Restore</button> <button class="action" type="button" data-adel="${i}">Delete archive</button></div>`).join(""):'<p class="muted">No archived quarters yet.</p>'}
+function renderSchedule(){
+ const days=weekdays.map(day=>{let arr=schedItems.filter(x=>x.repeat==="weekly"&&x.day===day).sort((a,b)=>(a.start||"").localeCompare(b.start||""));
+ return `<div class="card day-card ${day.toLowerCase()} ${day===dayNames[dow]?"today":""}"><h2>${day}</h2><ul class="schedule-list">${arr.length?arr.map(x=>`<li><span>${x.start?escHTML(x.start)+" — ":""}${escHTML(x.title)}${x.end?" (until "+escHTML(x.end)+")":""}${x.notes?" · "+escHTML(x.notes):""}</span> <button class="schedule-inline-edit" type="button" data-sedit="${x.id}" aria-label="Edit ${escHTML(x.title)}">Edit</button></li>`).join(""):"<li>No activities added yet.</li>"}</ul></div>`}).join("");
+ let once=schedItems.filter(x=>x.repeat==="once").sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+ $("scheduleContent").innerHTML=days+`<div class="card"><h2>📍 One-time events</h2><ul class="schedule-list">${once.length?once.map(x=>`<li>${escHTML(x.date||"")} — ${escHTML(x.title)} <button class="schedule-inline-edit" type="button" data-sedit="${x.id}">Edit</button></li>`).join(""):"<li>No one-time events added.</li>"}</ul></div>`;renderArchives()}
+function resetSched(){editingSched=null;$("schedForm").reset();$("schedHeading").textContent="➕ Add a schedule activity";$("schedSubmit").textContent="Save activity";$("schedCancel").hidden=true;$("schedDate").disabled=true}
+$("schedRepeat").addEventListener("change",()=>$("schedDate").disabled=$("schedRepeat").value!=="once");
+$("schedForm").addEventListener("submit",e=>{e.preventDefault();let title=$("schedTitle").value.trim(),repeat=$("schedRepeat").value,date=$("schedDate").value;if(!title)return;if(repeat==="once"&&!date){statusSched("Choose a date for a one-time event.");return}let x={id:editingSched||("s-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)),title,kind:$("schedType").value,repeat,day:$("schedDay").value,date:repeat==="once"?date:"",start:$("schedStart").value,end:$("schedEnd").value,notes:$("schedNotes").value.trim()};if(editingSched)schedItems=schedItems.map(y=>y.id===editingSched?x:y);else schedItems.push(x);try{saveSched();renderSchedule();resetSched();statusSched("Schedule saved.")}catch(err){statusSched("Browser storage is full; try removing older entries.")}});
+$("schedCancel").addEventListener("click",resetSched);
+$("archiveButton").addEventListener("click",()=>{let name=$("archiveName").value.trim();if(!name){statusSched("Enter a quarter name first.");return}let ar=getArchives();ar.unshift({name,savedAt:new Date().toLocaleDateString(),items:schedItems});try{localStorage.setItem(ARCH_KEY,JSON.stringify(ar));$("archiveName").value="";renderArchives();statusSched("Schedule archived; current schedule remains unchanged.")}catch(e){statusSched("Could not save the archive in browser storage.")}});
+document.addEventListener("click",e=>{let ed=e.target.closest("[data-sedit]"),del=e.target.closest("[data-sdel]"),rest=e.target.closest("[data-restore]"),ad=e.target.closest("[data-adel]");if(ed){let x=schedItems.find(y=>y.id===ed.dataset.sedit);if(!x)return;$("scheduleEditor").open=true;editingSched=x.id;$("schedTitle").value=x.title;$("schedType").value=x.kind||"Other";$("schedRepeat").value=x.repeat;$("schedDay").value=x.day||"Monday";$("schedDate").value=x.date||"";$("schedDate").disabled=x.repeat!=="once";$("schedStart").value=x.start||"";$("schedEnd").value=x.end||"";$("schedNotes").value=x.notes||"";$("schedHeading").textContent="✏️ Edit schedule activity";$("schedSubmit").textContent="Save changes";$("schedCancel").hidden=false;return}if(del){let x=schedItems.find(y=>y.id===del.dataset.sdel);if(x&&confirm(`Delete "${x.title}"?`)){schedItems=schedItems.filter(y=>y.id!==x.id);saveSched();renderSchedule()}return}if(rest){let ar=getArchives(),x=ar[+rest.dataset.restore];if(x&&confirm("Restore this quarter? Your current schedule will be archived automatically first.")){ar.unshift({name:"Backup before restore",savedAt:new Date().toLocaleString(),items:schedItems});localStorage.setItem(ARCH_KEY,JSON.stringify(ar));schedItems=x.items;saveSched();renderSchedule();statusSched("Archived schedule restored.")}return}if(ad){let ar=getArchives();if(confirm("Delete this archived schedule?")){ar.splice(+ad.dataset.adel,1);localStorage.setItem(ARCH_KEY,JSON.stringify(ar));renderArchives()}}});
+renderSchedule();
+function ck(items,p){return items.map((x,i)=>`<label class="item"><input type="checkbox" data-k="${p+i}"><span>${x}</span></label>`).join("")}
+$("daily").innerHTML=ck(["Mobi / pump present and functioning","CGM / sensor present and functioning","Insulin supplies packed","Low snacks / fast-acting carbs packed","Phone with me","Keys with me","Water bottle with me"],"daily");
+$("class").innerHTML=ck(["Mobi / pump","CGM / sensor","Insulin supplies","Low snacks / fast-acting carbs","Phone","Keys","Water bottle","Backpack","Watch","Road ID"],"class");
+$("runningList").innerHTML=ck(["Bring keys","Bring a couple packs of gummies","Bring ID","Bring phone"],"run");
+$("climbList").innerHTML=ck(["Cami (diabetes supplies full kit)","Water bottle","Fanny pack","A couple snacks","Climbing backpack","Wear flipflops","Portable charger (if applicable)","Restock on gummies (if applicable)","Movement scanner","Watch","Road ID"],"climb");
+$("dex").innerHTML=`
+<div class="card"><h3>⏱️ New Dexcom sensor warm-up</h3>
+<p>Enter when you started the sensor. This planner calculates the two-hour warm-up end time and tracks sensor day. You can enter the two finger-stick check times from your own Dexcom instructions or care plan; it will not guess medical timing.</p>
+<label for="dexStart">Date and time sensor was started</label><input id="dexStart" type="datetime-local">
+<div id="dexTimes" class="card"><p class="muted">Enter when you started the sensor to create finger-stick reminders one hour and two hours later.</p></div>
+<p class="small-note">Follow the instructions for your specific Dexcom model and your care team's plan. Finger-stick/calibration requirements vary by model and setup.</p></div>`;
+$("reminders").innerHTML=ck(["Charge my computer","Charge my portable charger","Clean my coffee mug","Put perishable food in the fridge (if applicable)","Make sure Mobi is charging at least every couple of days"],"rem");
+function wireChecks(){document.querySelectorAll("[data-k]").forEach(el=>{const k="levelup_"+el.dataset.k;el.checked=localStorage.getItem(k)==="1";el.addEventListener("change",()=>localStorage.setItem(k,el.checked?"1":"0"))})}
+wireChecks();
+const dexStartSaved=localStorage.getItem("levelup_dex_start")||"";
+$("dexStart").value=dexStartSaved;
+function renderDexStatus(raw){
+ const card=$("dexStatusCard"),box=$("dexDayStatus");
+ card.classList.remove("status-yellow","status-red");card.classList.add("status-neutral");
+ if(!raw){box.innerHTML='<p class="muted">Enter the current sensor start date above (Day 0) to track Day 9 and Day 10.</p>';return}
+ const age=dayAgeFromDate(raw.slice(0,10));
+ let msg=`<p><b>Current sensor day:</b> ${age}</p>`;
+ if(age===9){card.classList.remove("status-neutral");card.classList.add("status-yellow");msg+='<p><b>🟡 DAY 9 — YELLOW</b> · Plan for your next sensor according to your usual routine.</p>'}
+ else if(age>=10){card.classList.remove("status-neutral");card.classList.add("status-red");msg+='<p><b>🔴 DAY 10+ — RED</b> · This stays red until you enter the start date for your new sensor.</p>'}
+ else if(age<0){msg+='<p class="muted">That start date is in the future. Check it if this was not intentional.</p>'}
+ else{msg+='<p class="muted">No day-9/day-10 color reminder yet.</p>'}
+ box.innerHTML=msg;
+}
+function renderDexTimes(){
+ const raw=$("dexStart").value;
+ localStorage.setItem("levelup_dex_start",raw);
+ renderDexStatus(raw);
+ if(!raw){$("dexTimes").innerHTML='<p class="muted">Enter the sensor start date and time to create your two finger-stick reminders.</p>';return}
+ const start=new Date(raw);
+ const first=new Date(start.getTime()+60*60000);
+ const second=new Date(start.getTime()+120*60000);
+ const fmt=d=>d.toLocaleString(undefined,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+ const keyBase="levelup_dex_check_"+raw;
+ const reminder=(d,n)=>`<label class="item"><input type="checkbox" id="dexCheck${n}" data-dex-reminder="${keyBase}_${n}"><span><b>${fmt(d)}</b> — finger-stick check ${n}</span></label>`;
+ $("dexTimes").innerHTML=`<p><b>Sensor started:</b> ${fmt(start)}</p><p><b>Two-hour warm-up ends:</b> ${fmt(second)}</p><p class="muted">Your reminders are automatically set for one hour and two hours after the start time.</p>${reminder(first,1)}${reminder(second,2)}<p class="small-note">Follow the instructions for your specific Dexcom model and your care team's plan. These reminders are planner checkboxes, not medical advice.</p>`;
+ document.querySelectorAll("[data-dex-reminder]").forEach(el=>{
+  const k=el.dataset.dexReminder;
+  el.checked=localStorage.getItem(k)==="1";
+  el.addEventListener("change",()=>localStorage.setItem(k,el.checked?"1":"0"));
+ });
+}
+$("dexStart").addEventListener("change",renderDexTimes);
+renderDexTimes();
+
+const homeworkDays=["Monday","Tuesday","Wednesday","Thursday","Friday + Weekend","Miscellaneous"];
+function hwGet(d){try{return JSON.parse(localStorage.getItem("levelup_hw"+d)||"[]")}catch(e){return []}}
+function hwSave(d,a){localStorage.setItem("levelup_hw"+d,JSON.stringify(a))}
+function renderHW(){$("hw").innerHTML=homeworkDays.map((d,i)=>{const a=hwGet(d);return `<div class="card"><h2>${d}</h2>${a.map((x,j)=>`<div class="assignment"><input type="checkbox" ${x.done?"checked":""} onchange="hwDone('${d}',${j},this.checked)"><span>${escHTML(x.text)}</span><button class="action" onclick="hwEdit('${d}',${j})">Edit</button><button class="remove" onclick="hwRemove('${d}',${j})">Remove</button></div>`).join("")}<div class="row"><input id="h${i}" placeholder="Add assignment"><button class="action" onclick="hwAdd('${d}',${i})">Add</button></div></div>`}).join("")}
+window.hwAdd=function(d,i){const input=$("h"+i),t=input.value.trim();if(!t)return;const a=hwGet(d);a.push({text:t,done:false});hwSave(d,a);renderHW()};
+window.hwDone=function(d,j,v){const a=hwGet(d);a[j].done=v;hwSave(d,a);renderHW()};
+window.hwEdit=function(d,j){const a=hwGet(d),x=a[j];if(!x)return;const revised=prompt("Edit homework assignment:",x.text);if(revised===null)return;const t=revised.trim();if(!t){alert("Homework cannot be blank. Use Remove to delete it.");return}x.text=t;hwSave(d,a);renderHW()};
+window.hwRemove=function(d,j){const a=hwGet(d);a.splice(j,1);hwSave(d,a);renderHW()};
+renderHW();
+function dayAgeFromDate(raw){
+ if(!raw)return null;
+ const base=new Date(raw+"T12:00:00"),today=new Date();today.setHours(12,0,0,0);
+ return Math.round((today-base)/86400000);
+}
+function renderSiteDates(){
+ const raw=$("siteDate").value,box=$("siteAlerts"),card=$("pumpCard");
+ localStorage.setItem("levelup_siteDate",raw);
+ card.classList.remove("status-yellow","status-red");card.classList.add("status-neutral");
+ if(!raw){box.innerHTML='<p class="muted">Choose your latest pump-site change date (Day 0). Day 3 will turn yellow; Day 4+ will turn red.</p>';return}
+ const age=dayAgeFromDate(raw);
+ if(age===3){card.classList.remove("status-neutral");card.classList.add("status-yellow")}
+ else if(age>=4){card.classList.remove("status-neutral");card.classList.add("status-red")}
+ const dateLabel=new Date(raw+"T12:00:00").toLocaleDateString(undefined,{month:"long",day:"numeric",year:"numeric"});
+ let message=`<p><b>Last site change:</b> ${dateLabel}</p><p><b>Current site day:</b> ${age}</p>`;
+ if(age===3)message+='<p><b>🟡 DAY 3 — YELLOW</b> · Reminder to check your site-change plan.</p>';
+ else if(age>=4)message+='<p><b>🔴 DAY 4+ — RED</b> · This reminder stays red until you update the date after changing your site.</p>';
+ else if(age<1)message+='<p class="muted">That date is in the future. Check the date if this was not intentional.</p>';
+ else message+='<p class="muted">No day-3/day-4 color reminder yet.</p>';
+ box.innerHTML=message;
+}
+$("siteDate").value=localStorage.getItem("levelup_siteDate")||"";
+$("siteDate").addEventListener("change",renderSiteDates);renderSiteDates();
+
+(()=>{
+const K="levelup_plan10_items_v1",SK="levelup_plan10_start_v1",CK="levelup_plan10_colors_v1",NK="levelup_plan10_named_colors_v1",p=id=>document.getElementById(id);if(!p("planForm"))return;
+let items=[];try{items=JSON.parse(localStorage.getItem(K)||"[]")}catch(e){}if(!Array.isArray(items))items=[];
+const defaults={Academic:"#dbeafe",Finals:"#fecaca",Running:"#dcfce7",Climbing:"#f3e8ff",Health:"#fce7f3",Meals:"#fef3c7",Personal:"#cffafe","DU Sports":"#ffedd5",Other:"#e5e7eb"};
+const labels={Academic:"Academic / Classes",Finals:"Final Exams",Running:"Running",Climbing:"Rock Climbing",Health:"Diabetes & Health",Meals:"Meals",Personal:"Personal / Friends","DU Sports":"DU Sports",Other:"Other"};
+let legacy={...defaults};try{let x=JSON.parse(localStorage.getItem(CK)||"{}");Object.keys(defaults).forEach(k=>{if(/^#[0-9a-f]{6}$/i.test(x[k]||""))legacy[k]=x[k]})}catch(e){}
+let colors=[];try{let c=JSON.parse(localStorage.getItem(NK)||"[]");if(Array.isArray(c))colors=c.filter(x=>x&&typeof x.id==="string"&&typeof x.name==="string"&&/^#[0-9a-f]{6}$/i.test(x.hex))}catch(e){}
+if(!colors.length){colors=Object.keys(defaults).map(k=>({id:k,name:labels[k],hex:legacy[k]}));localStorage.setItem(NK,JSON.stringify(colors))}
+let edit=null,colorEdit=null;
+const esc=s=>escHTML(String(s??"")),pad=n=>String(n).padStart(2,"0"),ds=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`,parse=s=>{if(!s)return null;let a=s.split("-").map(Number);return new Date(a[0],a[1]-1,a[2],12)},plus=(d,n)=>{let x=new Date(d);x.setDate(x.getDate()+n);return x},pretty=s=>parse(s)?.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})||s,short=s=>parse(s)?.toLocaleDateString(undefined,{month:"short",day:"numeric"})||s;
+const save=()=>localStorage.setItem(K,JSON.stringify(items)),status=s=>p("planStatus").textContent=s,colorStatus=s=>p("colorStatus").textContent=s;
+function findColor(id){return colors.find(c=>c.id===id)||colors.find(c=>c.name===id)}
+function eventColor(x){return findColor(x.category)?.hex||legacy[x.category]||legacy.Other}
+function colorName(x){return findColor(x.category)?.name||labels[x.category]||"Other"}
+function renderColors(){p("planColorSettings").innerHTML=colors.map(c=>`<div class="color-setting"><span style="background:${c.hex};width:27px;height:27px;border:1px solid #94a3b8;border-radius:6px;flex-shrink:0"></span><span style="flex:1;min-width:0;overflow-wrap:anywhere">${esc(c.name)}</span><button type="button" class="action" data-cedit="${esc(c.id)}">Edit</button><button type="button" class="action" data-cdel="${esc(c.id)}">×</button></div>`).join("");let current=p("planCategory").value;p("planCategory").innerHTML=colors.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("");if(colors.some(c=>c.id===current))p("planCategory").value=current}
+function eventHTML(x){let c=eventColor(x);return `<div class="calendar-event ${x.done?"is-done":""}" style="--event-bg:${c};--event-color:${c}"><b>${esc(x.title)}</b><div>${esc(x.type||"Other")} · ${esc(colorName(x))}</div><button class="action" data-pdone="${esc(x.id)}" type="button">${x.done?"✓ Done":"Mark done"}</button><button class="action" data-pedit="${esc(x.id)}" type="button">Edit</button><button class="action" data-pdel="${esc(x.id)}" type="button">×</button></div>`}
+p("planStart").value=localStorage.getItem(SK)||ds(new Date());p("planDate").value=p("planStart").value;
+function render(){let st=parse(p("planStart").value)||parse(ds(new Date())),end=plus(st,76),a=ds(st),b=ds(end),regularEnd=ds(plus(st,69)),finalStart=ds(plus(st,70));p("planWindow").textContent=`Weeks 1–10: ${pretty(a)} – ${pretty(regularEnd)} · Week 11 finals: ${pretty(finalStart)} – ${pretty(b)}.`;let inside=items.filter(x=>x.date>=a&&x.date<=b);p("planWeeks").innerHTML=Array.from({length:11},(_,i)=>{let first=plus(st,i*7),last=plus(first,6),lo=ds(first),hi=ds(last),arr=inside.filter(x=>x.date>=lo&&x.date<=hi),final=i===10;let cells=Array.from({length:7},(_,d)=>{let date=plus(first,d),key=ds(date),dayItems=arr.filter(x=>x.date===key).sort((u,v)=>u.title.localeCompare(v.title));return `<div class="calendar-day ${key===ds(new Date())?"today":""}"><div class="calendar-day-name">${date.toLocaleDateString(undefined,{weekday:"short"})}</div><div class="calendar-day-date">${short(key)}</div>${dayItems.map(eventHTML).join("")}<button class="calendar-add" type="button" data-add-date="${key}" aria-label="Add item on ${key}">+</button></div>`}).join("");return `<section class="calendar-week ${final?"finals-week":""}"><h3 class="calendar-week-heading">${final?"🎓 Week 11 · FINAL EXAMS":"Week "+(i+1)} <small>${esc(pretty(lo))} – ${esc(pretty(hi))}</small></h3><div class="calendar-grid">${cells}</div></section>`}).join("");let outside=items.filter(x=>x.date<a||x.date>b).sort((x,y)=>x.date.localeCompare(y.date));p("planOutside").innerHTML=outside.length?outside.map(x=>`<div class="schedule-event"><b>${esc(x.title)}</b> · ${esc(pretty(x.date))} · ${esc(colorName(x))}<div class="plan-actions"><button class="action" data-pedit="${esc(x.id)}" type="button">Edit</button><button class="action" data-pdel="${esc(x.id)}" type="button">Delete</button></div>${x.notes?`<p>${esc(x.notes)}</p>`:""}</div>`).join(""):'<p class="plan-empty">No items outside this window.</p>'}
+function reset(){edit=null;p("planForm").reset();p("planDate").value=p("planStart").value;p("planHeading").textContent="➕ Add a plan item";p("planSubmit").textContent="Save item";p("planCancel").hidden=true}
+p("planForm").addEventListener("submit",e=>{e.preventDefault();let title=p("planTitle").value.trim(),date=p("planDate").value;if(!title||!date)return;let x={id:edit||"p-"+Date.now()+"-"+Math.random().toString(36).slice(2,7),title,date,type:p("planType").value,category:p("planCategory").value||"Other",notes:p("planNotes").value.trim(),done:false};if(edit){let old=items.find(y=>y.id===edit);if(old)x.done=old.done;items=items.map(y=>y.id===edit?x:y)}else items.push(x);try{save();reset();render();status("Plan item saved.")}catch(e){status("Could not save this item in browser storage.")}});
+p("planCancel").addEventListener("click",reset);p("planStart").addEventListener("change",()=>{if(!p("planStart").value)return;localStorage.setItem(SK,p("planStart").value);if(!edit)p("planDate").value=p("planStart").value;render()});p("planToday").addEventListener("click",()=>{p("planStart").value=ds(new Date());localStorage.setItem(SK,p("planStart").value);if(!edit)p("planDate").value=p("planStart").value;render()});
+function resetColor(){colorEdit=null;p("colorForm").reset();p("colorSubmit").textContent="Add named color";p("colorCancel").hidden=true}
+p("colorForm").addEventListener("submit",e=>{e.preventDefault();let name=p("colorName").value.trim(),hex=p("colorValue").value;if(!name)return;if(colors.some(c=>c.name.toLowerCase()===name.toLowerCase()&&c.id!==colorEdit)){colorStatus("That color name already exists. Choose another name.");return}if(colorEdit){let c=findColor(colorEdit);if(c){c.name=name;c.hex=hex}}else{colors.push({id:"custom-"+Date.now()+"-"+Math.random().toString(36).slice(2,6),name,hex})}try{localStorage.setItem(NK,JSON.stringify(colors));resetColor();renderColors();render();colorStatus("Named color saved.")}catch(e){colorStatus("Could not save colors in browser storage.")}});
+p("colorCancel").addEventListener("click",resetColor);
+document.addEventListener("click",e=>{let ced=e.target.closest("[data-cedit]"),cdel=e.target.closest("[data-cdel]");if(ced){let c=findColor(ced.dataset.cedit);if(!c)return;colorEdit=c.id;p("colorName").value=c.name;p("colorValue").value=c.hex;p("colorSubmit").textContent="Save color changes";p("colorCancel").hidden=false;p("colorForm").scrollIntoView({behavior:"smooth",block:"center"});return}if(cdel){let id=cdel.dataset.cdel;if(colors.length<=1){colorStatus("Keep at least one named color.");return}let c=findColor(id);if(c&&confirm(`Delete color "${c.name}"? Calendar items using it will switch to the first available color.`)){let fallback=colors.find(x=>x.id!==id);items.forEach(x=>{if(x.category===id)x.category=fallback.id});colors=colors.filter(x=>x.id!==id);try{save();localStorage.setItem(NK,JSON.stringify(colors));renderColors();render();colorStatus("Color deleted; affected events now use another saved color.")}catch(e){colorStatus("Could not save this change.")}}return}
+let done=e.target.closest("[data-pdone]"),ed=e.target.closest("[data-pedit]"),del=e.target.closest("[data-pdel]"),add=e.target.closest("[data-add-date]");if(done){let x=items.find(y=>y.id===done.dataset.pdone);if(x){x.done=!x.done;save();render();status(x.done?"Marked complete.":"Marked incomplete.")}return}if(add){reset();p("planDate").value=add.dataset.addDate;p("planForm").scrollIntoView({behavior:"smooth",block:"center"});p("planTitle").focus();return}if(ed){let x=items.find(y=>y.id===ed.dataset.pedit);if(!x)return;edit=x.id;p("planTitle").value=x.title;p("planDate").value=x.date;p("planType").value=x.type||"Other";p("planCategory").value=findColor(x.category)?.id||colors[0].id;p("planNotes").value=x.notes||"";p("planHeading").textContent="✏️ Edit a plan item";p("planSubmit").textContent="Save changes";p("planCancel").hidden=false;p("planForm").scrollIntoView({behavior:"smooth",block:"center"})}else if(del){let x=items.find(y=>y.id===del.dataset.pdel);if(x&&confirm(`Delete "${x.title}"?`)){items=items.filter(y=>y.id!==x.id);save();render();status("Plan item deleted.")}}});
+renderColors();render();
+})();
+
+const PHOTO_KEY="levelup_home_photos_v1",LAST_PHOTO_KEY="levelup_last_photo_index_v1";
+function getPhotos(){try{return JSON.parse(localStorage.getItem(PHOTO_KEY)||"[]")}catch(e){return []}}
+let photoIndex=0;function photoStatus(s){if($("photoStatus"))$("photoStatus").textContent=s}
+function showPhoto(arr,i){if(!arr.length)return;photoIndex=((i%arr.length)+arr.length)%arr.length;$("photoPreview").innerHTML=`<img src="${arr[photoIndex]}" alt="Home photo ${photoIndex+1} of ${arr.length}">`;localStorage.setItem(LAST_PHOTO_KEY,String(photoIndex))}
+function renderPhotos(random=false){let arr=getPhotos();if(!arr.length){$("photoPreview").classList.remove("slideshow");$("photoPreview").innerHTML="";photoStatus("No photos saved yet. Add photos above.");return}$("photoPreview").classList.add("slideshow");let i=0;if(random&&arr.length>1){let last=Number(localStorage.getItem(LAST_PHOTO_KEY)),choices=arr.map((_,j)=>j).filter(j=>j!==last);i=choices[Math.floor(Math.random()*choices.length)]}else i=Math.min(photoIndex,arr.length-1);showPhoto(arr,i);photoStatus(`${arr.length} photo${arr.length===1?"":"s"} saved on this device. Slideshow changes every 7 seconds.`)}
+function compressPhoto(file){return new Promise((resolve,reject)=>{let url=URL.createObjectURL(file),img=new Image();img.onload=()=>{try{let scale=Math.min(1,1400/Math.max(img.naturalWidth,img.naturalHeight)),c=document.createElement("canvas");c.width=Math.max(1,Math.round(img.naturalWidth*scale));c.height=Math.max(1,Math.round(img.naturalHeight*scale));let ctx=c.getContext("2d");if(!ctx)throw Error("No canvas");ctx.drawImage(img,0,0,c.width,c.height);let data=c.toDataURL("image/jpeg",.74);URL.revokeObjectURL(url);resolve(data)}catch(e){URL.revokeObjectURL(url);reject(e)}};img.onerror=()=>{URL.revokeObjectURL(url);reject(Error("Image error"))};img.src=url})}
+setInterval(()=>{let arr=getPhotos();if(arr.length>1)showPhoto(arr,photoIndex+1)},7000);
+$("photoPicker").addEventListener("change",async e=>{let files=Array.from(e.target.files||[]).filter(f=>f.type.startsWith("image/")).slice(0,8);if(!files.length)return;photoStatus("Compressing photos…");let arr=[];for(let f of files){try{arr.push(await compressPhoto(f))}catch(e){}}if(!arr.length){photoStatus("Could not process these images.");return}try{localStorage.setItem(PHOTO_KEY,JSON.stringify(arr));localStorage.removeItem(LAST_PHOTO_KEY);renderPhotos(true)}catch(e){photoStatus("Browser storage is full. Try fewer photos or clear existing photos.")}});
+$("clearPhotos").addEventListener("click",()=>{localStorage.removeItem(PHOTO_KEY);localStorage.removeItem(LAST_PHOTO_KEY);$("photoPicker").value="";renderPhotos()});renderPhotos(true);
+async function loadWeather(){
+ const el=$("weather");el.innerHTML="Loading live Denver weather…";
+ try{
+  const url="https://api.open-meteo.com/v1/forecast?latitude=39.7392&longitude=-104.9903&current=temperature_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FDenver";
+  const response=await fetch(url,{cache:"no-store"});if(!response.ok)throw new Error("Weather request failed");
+  const d=await response.json();if(!d.current||!d.daily)throw new Error("Weather data incomplete");
+  const labels={0:"Clear",1:"Mostly clear",2:"Partly cloudy",3:"Cloudy",45:"Foggy",48:"Foggy",51:"Drizzle",53:"Drizzle",55:"Drizzle",61:"Rain",63:"Rain",65:"Heavy rain",71:"Snow",73:"Snow",75:"Heavy snow",80:"Showers",81:"Showers",82:"Heavy showers",95:"Thunderstorms",96:"Thunderstorms",99:"Thunderstorms"};
+  el.innerHTML=`<div class="weather-temp">${Math.round(d.current.temperature_2m)}°F</div><b>${labels[d.current.weather_code]||"Current conditions"}</b><br><span class="muted">Today: ${Math.round(d.daily.temperature_2m_min[0])}°–${Math.round(d.daily.temperature_2m_max[0])}°F · Wind ${Math.round(d.current.wind_speed_10m)} mph</span>`;
+ }catch(err){el.innerHTML='<span class="muted">Live weather could not load just now. Try again later or use <a href="https://www.weather.gov/bou/" target="_blank" rel="noopener">NWS Denver/Boulder</a>.</span>'}
+}
+async function loadDUSports(){
+ const el=$('duSports');
+ try{
+  const response=await fetch('./du-sports.json?cache='+Date.now(),{cache:'no-store'});
+  if(!response.ok)throw new Error('No published schedule');
+  const feed=await response.json();
+  if(!Array.isArray(feed.games))throw new Error('Invalid schedule');
+  const today=new Date();today.setHours(0,0,0,0);
+  const end=new Date(today);end.setDate(end.getDate()+7);
+  const games=feed.games.filter(g=>{const d=new Date(g.date+'T12:00:00');return d>=today&&d<end}).sort((a,b)=>a.date.localeCompare(b.date));
+  const safe=t=>String(t||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const updated=feed.updated?new Date(feed.updated).toLocaleString():'unknown';
+  el.innerHTML=(games.length?games.map(g=>`<div class="event"><b>${safe(new Date(g.date+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}))} · ${safe(g.sport)}</b><br>${safe(g.matchup)}${g.time?' · '+safe(g.time):''}<br><span class="tag">${safe(g.venue||'See official calendar')}</span></div>`).join(''):'<p class="muted">No DU games listed for the next seven days.</p>')+`<p class="muted">Schedule last refreshed: ${safe(updated)}. Confirm game changes with DU Athletics.</p>`;
+ }catch(err){el.innerHTML='<p class="muted">The automatically updated schedule is not available yet. Check the official DU Athletics calendar below.</p>'}
+}
+loadWeather();loadDUSports();
+</script><script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,onAuthStateChanged,signOut} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+import {getFirestore,doc,getDoc,setDoc,onSnapshot} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+const config={apiKey:'AIzaSyD-JEy15BlgnStBuKTkYfSKohCOXaoxYzI',authDomain:'level-up-planner-7c923.firebaseapp.com',projectId:'level-up-planner-7c923',storageBucket:'level-up-planner-7c923.firebasestorage.app',messagingSenderId:'874438764644',appId:'1:874438764644:web:e58d4d4d98d69437725771'};
+const app=initializeApp(config),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
+const $=id=>document.getElementById(id),status=t=>$('syncStatus').textContent=t;
+const groups={
+ schedules:['levelup_schedule_editor_v1','levelup_schedule_archives_v1','levelup_plan10_items_v1','levelup_plan10_start_v1','levelup_plan10_named_colors_v1','levelup_plan10_colors_v1'],
+ homework:['levelup_hwMonday','levelup_hwTuesday','levelup_hwWednesday','levelup_hwThursday','levelup_hwFriday + Weekend','levelup_hwMiscellaneous'],
+ routine:['levelup_siteDate','levelup_dex_start']
+};
+const isCheck=k=>/^levelup_(daily|class|run|climb|rem|dex_check_)/.test(k);
+const managed=k=>Object.values(groups).some(a=>a.includes(k))||isCheck(k);
+let user=null,active=false,muting=false,unsubs=[],timers=new Map(),readyGroups=new Set();
+function snapshotLocal(group){let out={};if(group==='checks'){for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(isCheck(k))out[k]=localStorage.getItem(k)}}else for(let k of groups[group]){let v=localStorage.getItem(k);if(v!==null)out[k]=v}return out}
+function reference(group){return doc(db,'users',user.uid,'planner',group)}
+async function backup(){let data={exportedAt:new Date().toISOString(),site:location.origin,values:{}};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(k.startsWith('levelup_')&&k!=='levelup_home_photos_v1')data.values[k]=localStorage.getItem(k)}let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='level-up-backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('Backup downloaded. Keep it somewhere safe.');}
+$('syncBackup').onclick=backup;
+$('syncSignIn').onclick=async()=>{try{status('Opening Google sign-in…');if(/iPhone|iPad|iPod/.test(navigator.userAgent)){await signInWithRedirect(auth,provider)}else await signInWithPopup(auth,provider)}catch(e){status('Sign-in failed: '+e.message)}};
+$('syncSignOut').onclick=async()=>{stop();await signOut(auth);status('Signed out. Your local data remains on this device.')};
+getRedirectResult(auth).catch(e=>status('Sign-in return error: '+e.message));
+onAuthStateChanged(auth,u=>{user=u;$('syncAccount').textContent=u?'Signed in as '+(u.email||'Google account'):'Not signed in';$('syncSignIn').hidden=!!u;$('syncSignOut').hidden=!u;if(!u)stop()});
+async function importGroup(group){if(!user){status('Sign in first.');return}if(!confirm('Upload this device’s '+group+' to your private Firebase account? Any existing cloud '+group+' data will be replaced. Other categories will not be changed.'))return;try{await setDoc(reference(group),{values:snapshotLocal(group),updatedAt:new Date().toISOString()});status('Imported '+group+' from this device. Now complete the other device’s import before enabling sync.')}catch(e){status('Import failed: '+e.message)}}
+$('syncMac').onclick=async()=>{if(!confirm('Are you on your Mac in Chrome, with the correct weekly schedule and Quarter Calendar?'))return;await importGroup('schedules')};
+$('syncPhone').onclick=async()=>{if(!confirm('Are you in the iPhone Home Screen app containing your homework?'))return;await importGroup('homework')};
+function stop(){active=false;unsubs.forEach(f=>f());unsubs=[];timers.forEach(t=>clearTimeout(t));timers.clear();readyGroups.clear();localStorage.removeItem('levelup_sync_active')}
+$('syncDisable').onclick=()=>{stop();status('Automatic syncing paused on this device.')};
+const nativeSet=Storage.prototype.setItem,nativeRemove=Storage.prototype.removeItem;
+function groupOf(k){if(groups.schedules.includes(k))return 'schedules';if(groups.homework.includes(k))return 'homework';if(groups.routine.includes(k))return 'routine';if(isCheck(k))return 'checks';return null}
+function queue(group){if(!active||muting||!user||!readyGroups.has(group))return;clearTimeout(timers.get(group));timers.set(group,setTimeout(async()=>{try{await setDoc(reference(group),{values:snapshotLocal(group),updatedAt:new Date().toISOString()});status('Saved '+group+' to cloud.')}catch(e){status('Cloud save failed: '+e.message)}},900))}
+Storage.prototype.setItem=function(k,v){nativeSet.call(this,k,v);if(this===localStorage){let g=groupOf(k);if(g)queue(g)}};
+Storage.prototype.removeItem=function(k){nativeRemove.call(this,k);if(this===localStorage){let g=groupOf(k);if(g)queue(g)}};
+async function enable(){if(!user){status('Sign in first.');return}if(!confirm('Have you imported your Mac schedules AND your iPhone homework? Enabling sync will load the cloud version onto this device.'))return;
+try{let available={};for(let group of ['schedules','homework']){let snap=await getDoc(reference(group));if(!snap.exists()){status('Missing cloud '+group+'. Import both devices first.');return}available[group]=snap.data().values||{}}
+active=true;localStorage.setItem('levelup_sync_active','1');for(let group of ['schedules','homework','routine','checks']){
+ const first=group in available?available[group]:null;
+ if(first){muting=true;for(let k of groups[group]||[]){if(Object.hasOwn(first,k))nativeSet.call(localStorage,k,first[k]);else nativeRemove.call(localStorage,k)}muting=false;readyGroups.add(group)}
+ else{let snap=await getDoc(reference(group));if(snap.exists()){apply(group,snap.data().values||{})}else{await setDoc(reference(group),{values:snapshotLocal(group),updatedAt:new Date().toISOString()})}readyGroups.add(group)}
+ unsubs.push(onSnapshot(reference(group),snap=>{if(!active||!snap.exists())return;let vals=snap.data().values||{};let current=snapshotLocal(group);if(JSON.stringify(current)!==JSON.stringify(vals)){apply(group,vals);status('Cloud update received. Reloading to display it.');setTimeout(()=>location.reload(),200)}},e=>status('Sync connection error: '+e.message)))
+ }
+ status('Cloud sync enabled. Your data will update across devices.');location.reload();
+}catch(e){status('Could not enable sync: '+e.message);stop()}}
+function apply(group,vals){muting=true;let keys=group==='checks'?Object.keys(snapshotLocal('checks')):groups[group];for(let k of keys){if(!Object.hasOwn(vals,k))nativeRemove.call(localStorage,k)}for(let [k,v] of Object.entries(vals)){if(groupOf(k)===group&&typeof v==='string')nativeSet.call(localStorage,k,v)}muting=false}
+$('syncEnable').onclick=enable;
+// Resume only after an explicit activation in this browser session. Never import on first visit.
+onAuthStateChanged(auth,u=>{if(u&&localStorage.getItem('levelup_sync_active')==='1'&&!active){startListening()} });
+async function startListening(){if(!user||active)return;active=true;for(let group of ['schedules','homework','routine','checks']){readyGroups.add(group);unsubs.push(onSnapshot(reference(group),snap=>{if(!snap.exists())return;let vals=snap.data().values||{};if(JSON.stringify(snapshotLocal(group))!==JSON.stringify(vals)){apply(group,vals);status('Updated from cloud.');location.reload()}},e=>status('Sync connection error: '+e.message)))}status('Cloud syncing is active.')}
+</script></body></html>
