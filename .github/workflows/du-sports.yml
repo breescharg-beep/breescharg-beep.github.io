@@ -1,0 +1,35 @@
+name: Refresh DU sports
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 12 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-sports:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get website files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Update DU sports schedule
+        run: python scripts/update_du_sports.py
+
+      - name: Save updated schedule
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add du-sports.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update DU sports schedule"
+            git push
+          fi
