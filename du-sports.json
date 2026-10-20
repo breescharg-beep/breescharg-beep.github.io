@@ -1,13 +1,6 @@
 {
-  "updated": "2026-10-19T12:53:54.398565+00:00",
+  "updated": "2026-10-20T12:54:07.977529+00:00",
   "games": [
-    {
-      "date": "2026-10-19",
-      "sport": "Women's Golf",
-      "matchup": "Women's Golf at Round 3",
-      "time": "All Day",
-      "venue": "Away"
-    },
     {
       "date": "2026-10-21",
       "sport": "Men's Soccer",
@@ -35,6 +28,13 @@
       "matchup": "Men's Swimming & Diving vs Seattle",
       "time": "5 p.m. MT",
       "venue": "Home"
+    },
+    {
+      "date": "2026-10-23",
+      "sport": "Women's Swimming & Diving",
+      "matchup": "Women's Swimming & Diving at Pepperdine",
+      "time": "5 p.m. MT",
+      "venue": "Away"
     },
     {
       "date": "2026-10-23",
