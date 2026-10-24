@@ -1,47 +1,12 @@
 {
-  "updated": "2026-10-23T12:52:05.120414+00:00",
+  "updated": "2026-10-24T12:49:18.025865+00:00",
   "games": [
     {
-      "date": "2026-10-23",
-      "sport": "Men's Swimming & Diving",
-      "matchup": "Men's Swimming & Diving at Pepperdine",
-      "time": "5 p.m. MT",
+      "date": "2026-10-24",
+      "sport": "Women's Soccer",
+      "matchup": "Women's Soccer at San Francisco",
+      "time": "2 p.m. MT",
       "venue": "Away"
-    },
-    {
-      "date": "2026-10-23",
-      "sport": "Men's Swimming & Diving",
-      "matchup": "Men's Swimming & Diving vs Seattle",
-      "time": "5 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-23",
-      "sport": "Women's Swimming & Diving",
-      "matchup": "Women's Swimming & Diving at Pepperdine",
-      "time": "5 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-10-23",
-      "sport": "Women's Swimming & Diving",
-      "matchup": "Women's Swimming & Diving vs Seattle",
-      "time": "5 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-23",
-      "sport": "Women's Lacrosse",
-      "matchup": "Women's Lacrosse vs Alumnae Game",
-      "time": "5 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-23",
-      "sport": "Women's Tennis",
-      "matchup": "Women's Tennis vs Colorado Cup",
-      "time": "All Day",
-      "venue": "Home"
     }
   ]
 }
