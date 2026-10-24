@@ -1,11 +1,165 @@
 {
-  "updated": "2026-10-24T12:49:18.025865+00:00",
+  "updated": "2026-10-24T22:03:21.171261+00:00",
   "games": [
+    {
+      "date": "2026-10-24",
+      "sport": "Volleyball",
+      "matchup": "Volleyball at Pacific",
+      "time": "2 p.m. MT",
+      "venue": "Away"
+    },
     {
       "date": "2026-10-24",
       "sport": "Women's Soccer",
       "matchup": "Women's Soccer at San Francisco",
       "time": "2 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-10-24",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer vs Pacific",
+      "time": "3 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-24",
+      "sport": "#4 Ice Hockey",
+      "matchup": "#4 Ice Hockey vs Boston College",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-28",
+      "sport": "Women's Soccer",
+      "matchup": "Women's Soccer at LMU",
+      "time": "7 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-10-29",
+      "sport": "Volleyball",
+      "matchup": "Volleyball vs Santa Clara",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-30",
+      "sport": "Women's Swimming & Diving",
+      "matchup": "Women's Swimming & Diving vs Colorado State",
+      "time": "12 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-30",
+      "sport": "#4 Ice Hockey",
+      "matchup": "#4 Ice Hockey vs Omaha",
+      "time": "7 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-30",
+      "sport": "Men's Tennis",
+      "matchup": "Men's Tennis vs Colorado Cup",
+      "time": "All Day",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-31",
+      "sport": "Men's Swimming & Diving",
+      "matchup": "Men's Swimming & Diving vs Colorado Mesa",
+      "time": "10 a.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-31",
+      "sport": "Women's Swimming & Diving",
+      "matchup": "Women's Swimming & Diving vs Colorado Mesa",
+      "time": "10 a.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-31",
+      "sport": "Volleyball",
+      "matchup": "Volleyball vs San Francisco",
+      "time": "12 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-31",
+      "sport": "Women's Soccer",
+      "matchup": "Women's Soccer vs Pacific",
+      "time": "3 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-31",
+      "sport": "#4 Ice Hockey",
+      "matchup": "#4 Ice Hockey vs Omaha",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-10-31",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer at Santa Clara",
+      "time": "8 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-02",
+      "sport": "Men's Basketball",
+      "matchup": "Men's Basketball at Wisconsin",
+      "time": "5:30 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-02",
+      "sport": "Women's Basketball",
+      "matchup": "Women's Basketball at Air Force",
+      "time": "6:30 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-04",
+      "sport": "Women's Basketball",
+      "matchup": "Women's Basketball vs Lindenwood",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-05",
+      "sport": "Men's Tennis",
+      "matchup": "Men's Tennis vs ITA Sectional Championship",
+      "time": "All Day",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-06",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer vs Seattle",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-06",
+      "sport": "#4 Ice Hockey",
+      "matchup": "#4 Ice Hockey at Arizona State",
+      "time": "7 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-06",
+      "sport": "Men's Tennis",
+      "matchup": "Men's Tennis at Grand Canyon Hidden Duals",
+      "time": "All Day",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-06",
+      "sport": "Women's Tennis",
+      "matchup": "Women's Tennis at Aztec Fall Invitational",
+      "time": "All Day",
       "venue": "Away"
     }
   ]
