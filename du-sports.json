@@ -1,34 +1,6 @@
 {
-  "updated": "2026-10-24T22:03:21.171261+00:00",
+  "updated": "2026-10-25T12:48:36.397156+00:00",
   "games": [
-    {
-      "date": "2026-10-24",
-      "sport": "Volleyball",
-      "matchup": "Volleyball at Pacific",
-      "time": "2 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-10-24",
-      "sport": "Women's Soccer",
-      "matchup": "Women's Soccer at San Francisco",
-      "time": "2 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-10-24",
-      "sport": "Men's Soccer",
-      "matchup": "Men's Soccer vs Pacific",
-      "time": "3 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-24",
-      "sport": "#4 Ice Hockey",
-      "matchup": "#4 Ice Hockey vs Boston College",
-      "time": "6 p.m. MT",
-      "venue": "Home"
-    },
     {
       "date": "2026-10-28",
       "sport": "Women's Soccer",
@@ -160,6 +132,34 @@
       "sport": "Women's Tennis",
       "matchup": "Women's Tennis at Aztec Fall Invitational",
       "time": "All Day",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-07",
+      "sport": "Volleyball",
+      "matchup": "Volleyball vs San Diego",
+      "time": "12 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-07",
+      "sport": "Women's Soccer",
+      "matchup": "Women's Soccer at Seattle",
+      "time": "2 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-07",
+      "sport": "Women's Basketball",
+      "matchup": "Women's Basketball at Weber State ",
+      "time": "4 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-07",
+      "sport": "Men's Basketball",
+      "matchup": "Men's Basketball at UC Riverside",
+      "time": "5:30 p.m. MT",
       "venue": "Away"
     }
   ]
