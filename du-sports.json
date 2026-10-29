@@ -1,13 +1,6 @@
 {
-  "updated": "2026-10-28T13:05:18.615167+00:00",
+  "updated": "2026-10-29T13:07:07.591606+00:00",
   "games": [
-    {
-      "date": "2026-10-28",
-      "sport": "Women's Soccer",
-      "matchup": "Women's Soccer at LMU",
-      "time": "7 p.m. MT",
-      "venue": "Away"
-    },
     {
       "date": "2026-10-29",
       "sport": "Volleyball",
@@ -181,6 +174,20 @@
       "sport": "Women's Basketball",
       "matchup": "Women's Basketball vs Colorado State ",
       "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-11",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer vs Semifinal",
+      "time": "TBA",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-11",
+      "sport": "Women's Soccer",
+      "matchup": "Women's Soccer vs West Coast Conference Tournament",
+      "time": "TBA",
       "venue": "Home"
     }
   ]
