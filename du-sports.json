@@ -1,13 +1,6 @@
 {
-  "updated": "2026-10-29T13:07:07.591606+00:00",
+  "updated": "2026-10-30T13:03:59.043571+00:00",
   "games": [
-    {
-      "date": "2026-10-29",
-      "sport": "Volleyball",
-      "matchup": "Volleyball vs Santa Clara",
-      "time": "6 p.m. MT",
-      "venue": "Home"
-    },
     {
       "date": "2026-10-30",
       "sport": "Women's Swimming & Diving",
@@ -184,11 +177,11 @@
       "venue": "Home"
     },
     {
-      "date": "2026-11-11",
-      "sport": "Women's Soccer",
-      "matchup": "Women's Soccer vs West Coast Conference Tournament",
-      "time": "TBA",
-      "venue": "Home"
+      "date": "2026-11-12",
+      "sport": "Volleyball",
+      "matchup": "Volleyball at LMU",
+      "time": "7 p.m. MT",
+      "venue": "Away"
     }
   ]
 }
