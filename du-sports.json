@@ -1,27 +1,6 @@
 {
-  "updated": "2026-10-30T13:03:59.043571+00:00",
+  "updated": "2026-10-31T12:56:42.258318+00:00",
   "games": [
-    {
-      "date": "2026-10-30",
-      "sport": "Women's Swimming & Diving",
-      "matchup": "Women's Swimming & Diving vs Colorado State",
-      "time": "12 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-30",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey vs Omaha",
-      "time": "7 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-30",
-      "sport": "Men's Tennis",
-      "matchup": "Men's Tennis vs Colorado Cup",
-      "time": "All Day",
-      "venue": "Home"
-    },
     {
       "date": "2026-10-31",
       "sport": "Men's Swimming & Diving",
@@ -181,6 +160,27 @@
       "sport": "Volleyball",
       "matchup": "Volleyball at LMU",
       "time": "7 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-13",
+      "sport": "Women's Basketball",
+      "matchup": "Women's Basketball at LSU",
+      "time": "5 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-13",
+      "sport": "#3 Ice Hockey",
+      "matchup": "#3 Ice Hockey vs Lindenwood",
+      "time": "7 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-13",
+      "sport": "Men's Tennis",
+      "matchup": "Men's Tennis at LMU Hidden Duals",
+      "time": "All Day",
       "venue": "Away"
     }
   ]
