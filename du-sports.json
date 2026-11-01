@@ -1,48 +1,6 @@
 {
-  "updated": "2026-10-31T12:56:42.258318+00:00",
+  "updated": "2026-11-01T12:57:31.080776+00:00",
   "games": [
-    {
-      "date": "2026-10-31",
-      "sport": "Men's Swimming & Diving",
-      "matchup": "Men's Swimming & Diving vs Colorado Mesa",
-      "time": "10 a.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-31",
-      "sport": "Women's Swimming & Diving",
-      "matchup": "Women's Swimming & Diving vs Colorado Mesa",
-      "time": "10 a.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-31",
-      "sport": "Volleyball",
-      "matchup": "Volleyball vs San Francisco",
-      "time": "12 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-31",
-      "sport": "Women's Soccer",
-      "matchup": "Women's Soccer vs Pacific",
-      "time": "3 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-31",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey vs Omaha",
-      "time": "6 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-10-31",
-      "sport": "Men's Soccer",
-      "matchup": "Men's Soccer at Santa Clara",
-      "time": "8 p.m. MT",
-      "venue": "Away"
-    },
     {
       "date": "2026-11-02",
       "sport": "Men's Basketball",
@@ -151,8 +109,8 @@
     {
       "date": "2026-11-11",
       "sport": "Men's Soccer",
-      "matchup": "Men's Soccer vs Semifinal",
-      "time": "TBA",
+      "matchup": "Men's Soccer vs San Diego",
+      "time": "3 p.m. MT",
       "venue": "Home"
     },
     {
@@ -182,6 +140,34 @@
       "matchup": "Men's Tennis at LMU Hidden Duals",
       "time": "All Day",
       "venue": "Away"
+    },
+    {
+      "date": "2026-11-14",
+      "sport": "Men's Basketball",
+      "matchup": "Men's Basketball vs Wyoming",
+      "time": "1 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-14",
+      "sport": "Volleyball",
+      "matchup": "Volleyball at Pepperdine",
+      "time": "1 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-14",
+      "sport": "#3 Ice Hockey",
+      "matchup": "#3 Ice Hockey vs Lindenwood",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-14",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer vs Final",
+      "time": "8 p.m. MT",
+      "venue": "Home"
     }
   ]
 }
