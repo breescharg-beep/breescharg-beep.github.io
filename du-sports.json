@@ -1,13 +1,6 @@
 {
-  "updated": "2026-11-05T13:20:49.481000+00:00",
+  "updated": "2026-11-06T13:15:02.942179+00:00",
   "games": [
-    {
-      "date": "2026-11-05",
-      "sport": "Men's Tennis",
-      "matchup": "Men's Tennis vs ITA Sectional Championship",
-      "time": "All Day",
-      "venue": "Home"
-    },
     {
       "date": "2026-11-06",
       "sport": "Men's Soccer",
@@ -66,16 +59,16 @@
     },
     {
       "date": "2026-11-08",
-      "sport": "#4 Ice Hockey",
-      "matchup": "#4 Ice Hockey at Arizona State",
-      "time": "12 p.m. MT",
+      "sport": "Triathlon",
+      "matchup": "Triathlon at Collegiate National Championships",
+      "time": "10:30 a.m. & 12:30 a.m. MT",
       "venue": "Away"
     },
     {
       "date": "2026-11-08",
-      "sport": "Triathlon",
-      "matchup": "Triathlon at Collegiate National Championships",
-      "time": "TBD",
+      "sport": "#4 Ice Hockey",
+      "matchup": "#4 Ice Hockey at Arizona State",
+      "time": "12 p.m. MT",
       "venue": "Away"
     },
     {
@@ -174,6 +167,20 @@
       "sport": "Men's Tennis",
       "matchup": "Men's Tennis vs NCAA Division I Singles Championships",
       "time": "All Day",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-19",
+      "sport": "Volleyball",
+      "matchup": "Volleyball vs Seattle",
+      "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-19",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer vs First Round",
+      "time": "TBA",
       "venue": "Home"
     }
   ]
