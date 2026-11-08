@@ -1,39 +1,11 @@
 {
-  "updated": "2026-11-07T17:44:41.013327+00:00",
+  "updated": "2026-11-08T17:55:44.839350+00:00",
   "games": [
-    {
-      "date": "2026-11-07",
-      "sport": "Volleyball",
-      "matchup": "Volleyball vs San Diego",
-      "time": "12 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-11-07",
-      "sport": "Women's Soccer",
-      "matchup": "Women's Soccer at Seattle",
-      "time": "2 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-11-07",
-      "sport": "Women's Basketball",
-      "matchup": "Women's Basketball at Weber State ",
-      "time": "4 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-11-07",
-      "sport": "Men's Basketball",
-      "matchup": "Men's Basketball at UC Riverside",
-      "time": "5:30 p.m. MT",
-      "venue": "Away"
-    },
     {
       "date": "2026-11-08",
       "sport": "Triathlon",
       "matchup": "Triathlon at Collegiate National Championships",
-      "time": "10:30 a.m. & 12:30 a.m. MT",
+      "time": "10:30 a.m. & 12:30 p.m. MT",
       "venue": "Away"
     },
     {
@@ -160,6 +132,27 @@
       "sport": "#4 Ice Hockey",
       "matchup": "#4 Ice Hockey vs St. Thomas",
       "time": "7 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-21",
+      "sport": "Volleyball",
+      "matchup": "Volleyball vs Portland",
+      "time": "1 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-21",
+      "sport": "Men's Basketball",
+      "matchup": "Men's Basketball at Eastern Michigan",
+      "time": "11 a.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-21",
+      "sport": "#4 Ice Hockey",
+      "matchup": "#4 Ice Hockey vs St. Thomas",
+      "time": "6 p.m. MT",
       "venue": "Home"
     }
   ]
