@@ -1,20 +1,6 @@
 {
-  "updated": "2026-11-08T17:55:44.839350+00:00",
+  "updated": "2026-11-09T22:21:16.456289+00:00",
   "games": [
-    {
-      "date": "2026-11-08",
-      "sport": "Triathlon",
-      "matchup": "Triathlon at Collegiate National Championships",
-      "time": "10:30 a.m. & 12:30 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-11-08",
-      "sport": "#4 Ice Hockey",
-      "matchup": "#4 Ice Hockey at Arizona State",
-      "time": "12 p.m. MT",
-      "venue": "Away"
-    },
     {
       "date": "2026-11-10",
       "sport": "Women's Basketball",
@@ -153,6 +139,13 @@
       "sport": "#4 Ice Hockey",
       "matchup": "#4 Ice Hockey vs St. Thomas",
       "time": "6 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-11-22",
+      "sport": "Men's Soccer",
+      "matchup": "Men's Soccer vs Second Round",
+      "time": "TBA",
       "venue": "Home"
     }
   ]
