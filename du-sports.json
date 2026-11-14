@@ -1,27 +1,6 @@
 {
-  "updated": "2026-11-13T19:41:17.324955+00:00",
+  "updated": "2026-11-14T18:00:19.471570+00:00",
   "games": [
-    {
-      "date": "2026-11-13",
-      "sport": "Women's Basketball",
-      "matchup": "Women's Basketball at LSU",
-      "time": "5 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-11-13",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey vs Lindenwood",
-      "time": "7 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-11-13",
-      "sport": "Men's Tennis",
-      "matchup": "Men's Tennis at LMU Hidden Duals",
-      "time": "All Day",
-      "venue": "Away"
-    },
     {
       "date": "2026-11-14",
       "sport": "Men's Basketball",
@@ -125,6 +104,13 @@
       "sport": "Volleyball",
       "matchup": "Volleyball at Santa Clara",
       "time": "3 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-11-27",
+      "sport": "#3 Ice Hockey",
+      "matchup": "#3 Ice Hockey at Boston University",
+      "time": "4 p.m. MT",
       "venue": "Away"
     }
   ]
