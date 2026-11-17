@@ -1,20 +1,6 @@
 {
-  "updated": "2026-11-16T22:01:20.811058+00:00",
+  "updated": "2026-11-17T20:54:45.450337+00:00",
   "games": [
-    {
-      "date": "2026-11-16",
-      "sport": "Women's Basketball",
-      "matchup": "Women's Basketball vs Regis ",
-      "time": "5 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-11-16",
-      "sport": "Men's Basketball",
-      "matchup": "Men's Basketball vs UCCS",
-      "time": "8 p.m. MT",
-      "venue": "Home"
-    },
     {
       "date": "2026-11-17",
       "sport": "Men's Tennis",
@@ -105,6 +91,13 @@
       "matchup": "#3 Ice Hockey at Boston University",
       "time": "4 p.m. MT",
       "venue": "Away"
+    },
+    {
+      "date": "2026-11-30",
+      "sport": "Women's Basketball",
+      "matchup": "Women's Basketball vs Colorado Christian ",
+      "time": "6 p.m. MT",
+      "venue": "Home"
     }
   ]
 }
