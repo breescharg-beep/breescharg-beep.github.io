@@ -1,13 +1,6 @@
 {
-  "updated": "2026-11-19T20:36:34.472865+00:00",
+  "updated": "2026-11-20T20:17:26.886869+00:00",
   "games": [
-    {
-      "date": "2026-11-19",
-      "sport": "Volleyball",
-      "matchup": "Volleyball vs Seattle",
-      "time": "6 p.m. MT",
-      "venue": "Home"
-    },
     {
       "date": "2026-11-20",
       "sport": "#3 Ice Hockey",
@@ -112,6 +105,13 @@
       "matchup": "Women's Swimming & Diving at Minnesota Invite",
       "time": "All Day",
       "venue": "Away"
+    },
+    {
+      "date": "2026-12-03",
+      "sport": "Women's Basketball",
+      "matchup": "Women's Basketball vs Colorado",
+      "time": "6 p.m. MT",
+      "venue": "Home"
     }
   ]
 }
