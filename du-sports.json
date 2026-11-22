@@ -1,27 +1,6 @@
 {
-  "updated": "2026-11-21T19:14:53.180127+00:00",
+  "updated": "2026-11-22T19:39:03.014788+00:00",
   "games": [
-    {
-      "date": "2026-11-21",
-      "sport": "Volleyball",
-      "matchup": "Volleyball vs Portland",
-      "time": "1 p.m. MT",
-      "venue": "Home"
-    },
-    {
-      "date": "2026-11-21",
-      "sport": "Men's Basketball",
-      "matchup": "Men's Basketball at Eastern Michigan",
-      "time": "11 a.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-11-21",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey vs St. Thomas",
-      "time": "6 p.m. MT",
-      "venue": "Home"
-    },
     {
       "date": "2026-11-23",
       "sport": "Men's Basketball",
@@ -111,6 +90,20 @@
       "sport": "#3 Ice Hockey",
       "matchup": "#3 Ice Hockey vs North Dakota",
       "time": "7 p.m. MT",
+      "venue": "Home"
+    },
+    {
+      "date": "2026-12-05",
+      "sport": "Men's Basketball",
+      "matchup": "Men's Basketball at SIUE",
+      "time": "2 p.m. MT",
+      "venue": "Away"
+    },
+    {
+      "date": "2026-12-05",
+      "sport": "#3 Ice Hockey",
+      "matchup": "#3 Ice Hockey vs North Dakota",
+      "time": "6 p.m. MT",
       "venue": "Home"
     }
   ]
