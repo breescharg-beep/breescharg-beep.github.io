@@ -1,20 +1,6 @@
 {
-  "updated": "2026-11-23T23:52:49.575416+00:00",
+  "updated": "2026-11-24T22:25:53.480611+00:00",
   "games": [
-    {
-      "date": "2026-11-23",
-      "sport": "Men's Basketball",
-      "matchup": "Men's Basketball at Kansas",
-      "time": "6 p.m. MT",
-      "venue": "Away"
-    },
-    {
-      "date": "2026-11-23",
-      "sport": "Volleyball",
-      "matchup": "Volleyball at San Francisco",
-      "time": "7 p.m. MT",
-      "venue": "Away"
-    },
     {
       "date": "2026-11-24",
       "sport": "Women's Basketball",
@@ -31,8 +17,8 @@
     },
     {
       "date": "2026-11-27",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey at Boston University",
+      "sport": "#7/6 Ice Hockey",
+      "matchup": "#7/6 Ice Hockey at Boston University",
       "time": "4 p.m. MT",
       "venue": "Away"
     },
@@ -45,8 +31,8 @@
     },
     {
       "date": "2026-11-28",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey at Boston University",
+      "sport": "#7/6 Ice Hockey",
+      "matchup": "#7/6 Ice Hockey at Boston University",
       "time": "4 p.m. MT",
       "venue": "Away"
     },
@@ -87,8 +73,8 @@
     },
     {
       "date": "2026-12-04",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey vs North Dakota",
+      "sport": "#7/6 Ice Hockey",
+      "matchup": "#7/6 Ice Hockey vs North Dakota",
       "time": "7 p.m. MT",
       "venue": "Home"
     },
@@ -101,8 +87,8 @@
     },
     {
       "date": "2026-12-05",
-      "sport": "#3 Ice Hockey",
-      "matchup": "#3 Ice Hockey vs North Dakota",
+      "sport": "#7/6 Ice Hockey",
+      "matchup": "#7/6 Ice Hockey vs North Dakota",
       "time": "6 p.m. MT",
       "venue": "Home"
     },
